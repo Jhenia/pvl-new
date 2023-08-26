@@ -1989,6 +1989,8 @@ a {
 }
 input{
   border-radius: 0 !important;
+  -webkit-appearance: none;
+  -webkit-border-radius:0;
 }
 .webp .solutions-title:after { background: url(../img/solutions-icon.webp); }
 
