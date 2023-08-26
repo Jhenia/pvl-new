@@ -1725,7 +1725,15 @@ a {
     font-weight: 250;
   }
 }
-
+@media (max-width: 401px) {
+  .solutions-item__subtitle {
+    min-height: 110px;
+    max-height: 110px;
+    font-size: 16px;
+    min-width: 128px;
+    max-width: 128px;
+}
+}
 @media (max-width: 479.98px) {
   .container {
     max-width: none;
@@ -2033,4 +2041,18 @@ input{
     font-size: 18px;
     min-width: 200px;
   }
+}
+@media (max-width: 401px) {
+  .development-title {
+    margin-bottom: 60px;
+    padding-left: 14px;
+    font-size: 23px;
+}
+  .solutions-item__subtitle {
+    min-height: 110px;
+    max-height: 110px;
+    font-size: 16px;
+    min-width: 128px;
+    max-width: 128px;
+}
 }
