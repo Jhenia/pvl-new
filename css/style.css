@@ -740,7 +740,7 @@ header:before {
 .showblock {
   position: fixed;
   display: table;
-  height: 100%;
+  height: 100vh;
   width: 100%;
   top: 0;
   left: 0;
@@ -824,11 +824,9 @@ header:before {
 
 .showblock_background {
   cursor: pointer;
-  position: fixed;
-  top: 0;
-  left: 0;
+  position: absolute;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1095,6 +1093,7 @@ dd {
 }
 
 body {
+  position: relative;
   background: #0C0C0C;
   min-height: 100vh;
   scroll-behavior: smooth;
@@ -1493,8 +1492,8 @@ a {
     min-height: 110px;
     max-height: 110px;
     font-size: 16px;
-    min-width: 140px;
-    max-width: 140px;
+       min-width: 135px;
+    max-width: 135px;
   }
 
   .solutions-items {
@@ -1677,8 +1676,10 @@ a {
   }
 
   .showblock_modal {
-    top: 29.4%;
+    top: 300px !important;
     padding: 32px 24px;
+        margin: 0;
+    transform: translate(0, -50%) !important;
   }
 
   .form-box input {

@@ -47,57 +47,67 @@ $(function () {
     });
   });
 });
-// $(function () {
+$(function () {
 
 
-// document.getElementById('feedback-form').addEventListener('submit', function(evt){
-// var http = new XMLHttpRequest(), f = this;
-// var th = $(this);
-// const file_text = document.getElementById("file_text");
-// evt.preventDefault();
-// http.open("POST", "mail.php", true);
-// http.onreadystatechange = function() {
-// if (http.readyState == 4 && http.status == 200) {
-//  if (http.responseText.indexOf(f.nameff.value) == 0) { // очистить поля формы, если в ответе первым словом будет имя отправителя (nameFF)
-//    th.trigger("reset"); 
-//     file_text.innerHTML = "";
-
-//  }
-// }
-// }
-// http.onerror = function() {
-// alert('Извините, данные не были переданы');
-// }
-// http.send(new FormData(f));
-// }, false);
-
-// });
-$('form').submit(function (e) {
+document.getElementById('feedback-form').addEventListener('submit', function(evt){
+var http = new XMLHttpRequest(), f = this;
+var th = $(this);
   let show = document.querySelector(".showblock");
   const file_text = document.getElementById("file_text");
   let showbg = document.querySelector(".showblock_background");
-  var empty = $(this).parent().find("input").filter(function () {
-    return this.value === "";
-  });
-  if (!empty.length) {
-    show.classList.toggle("Show");
-    $('#modal-container').addClass('hide');
-    $('#modal-container2').addClass('hide');
-    $('.modal-background2').removeClass('opened');
+evt.preventDefault();
+http.open("POST", "mail.php", true);
+http.onreadystatechange = function() {
+if (http.readyState == 4 && http.status == 200) {
+ if (http.responseText.indexOf(f.nameff.value) == 0) { // очистить поля формы, если в ответе первым словом будет имя отправителя (nameFF)
+   th.trigger("reset"); 
+    file_text.innerHTML = "";
+ show.classList.toggle("Show");
+    
     showbg.classList.toggle("Show_bg");
-    $('.modal-background').removeClass('opened');
+   
     file_text.innerHTML = "";
 
 
     $('body').addClass('overlock');
     //Если все графы заполнены, то показываем popup
+ }
+}
+}
+http.onerror = function() {
+alert('Извините, данные не были переданы');
+}
+http.send(new FormData(f));
+}, false);
 
-
-    //очищаем все данные текстовых полей, кроме кнопок
-    $('form input').not(':button, :submit').val('');
-  }
-  e.preventDefault();
 });
+// $('form').submit(function (e) {
+//   let show = document.querySelector(".showblock");
+//   const file_text = document.getElementById("file_text");
+//   let showbg = document.querySelector(".showblock_background");
+//   var empty = $(this).parent().find("input").filter(function () {
+//     return this.value === "";
+//   });
+//   if (!empty.length) {
+//     show.classList.toggle("Show");
+//     $('#modal-container').addClass('hide');
+//     $('#modal-container2').addClass('hide');
+//     $('.modal-background2').removeClass('opened');
+//     showbg.classList.toggle("Show_bg");
+//     $('.modal-background').removeClass('opened');
+//     file_text.innerHTML = "";
+
+
+//     $('body').addClass('overlock');
+//     //Если все графы заполнены, то показываем popup
+
+
+//     //очищаем все данные текстовых полей, кроме кнопок
+//     $('form input').not(':button, :submit').val('');
+//   }
+//   e.preventDefault();
+// });
 
 $('.showblock_background').click(function () {
   $('body').removeClass('overlock');
