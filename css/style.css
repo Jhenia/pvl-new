@@ -1992,6 +1992,9 @@ input{
   -webkit-appearance: none;
   -webkit-border-radius:0;
 }
+.overlock{
+  overflow: hidden;
+}
 .webp .solutions-title:after { background: url(../img/solutions-icon.webp); }
 
 .webp .development-title:before { background: url(../img/development-icons__title.webp); }
