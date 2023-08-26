@@ -74,6 +74,7 @@ $(function () {
 // });
 $('form').submit(function (e) {
   let show = document.querySelector(".showblock");
+  const file_text = document.getElementById("file_text");
   let showbg = document.querySelector(".showblock_background");
   var empty = $(this).parent().find("input").filter(function () {
     return this.value === "";
@@ -85,7 +86,7 @@ $('form').submit(function (e) {
     $('.modal-background2').removeClass('opened');
     showbg.classList.toggle("Show_bg");
     $('.modal-background').removeClass('opened');
-
+    file_text.innerHTML = "";
 
 
     $('body').addClass('overlock');
